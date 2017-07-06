@@ -7,7 +7,7 @@ install:
 script:
   - python setup.py bdist_wheel
   - python build.py build_exe
-  - ls
+  - ls . dist build
 deploy:
   provider: bintray
   file: "./bintray.json"
