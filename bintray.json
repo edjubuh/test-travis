@@ -14,7 +14,7 @@
         "desc": "My First Version"
     }, 
     "files": [
-        { "includePattern": "(pros_cli-.*\\.zip)", "uploadPattern": "$1" },
+        { "includePattern": "./(pros_cli-.*\\.zip)", "uploadPattern": "$1" },
         { "includePattern": "dist/(.*\\.whl)", "uploadPattern": "$1" }
     ]
 }
