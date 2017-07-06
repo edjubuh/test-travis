@@ -16,4 +16,4 @@ with(open('bintray.json', 'w')) as f:
             { 'includePattern': './(pros_cli-.*\\\\.zip)', 'uploadPattern': '$1' },
             { 'includePattern': './dist/(.*\\\\.whl)', 'uploadPattern': '$1' }
         ]
-    })
+    }, f)
