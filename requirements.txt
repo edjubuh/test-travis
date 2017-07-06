@@ -1,0 +1,7 @@
+click
+pyserial
+cachetools
+requests
+tabulate
+jsonpickle
+semantic_version
