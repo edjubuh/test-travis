@@ -1,7 +1,7 @@
 {
     "package": {
-        "name": "pros-test",
-        "repo": "generic",
+        "name": "test-cli",
+        "repo": "pros-test",
         "subject": "purdue-sigbots",
         "website_url": "pros.cs.purdue.edu",
         "issue_tracker_url": "https://github.com/edjubuh/test-travis/issues",
