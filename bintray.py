@@ -1,7 +1,7 @@
 import json
+import subprocess
 
-with(open('bintray.json', 'w')) as f:
-    json.dump({
+o = {
         'package': {
             'name': 'test-cli',
             'repo': 'pros-test',
@@ -9,11 +9,14 @@ with(open('bintray.json', 'w')) as f:
         },
         'version': {
             'name': open('version').read().strip(),
-            'desc': subprocess.check_output(['git', 'log', '-1', '--format=%B']),
+            'desc': str(subprocess.check_output(['git', 'log', '-1', '--format=%B'])).strip(),
             'vcs_tag': open('version').read().strip(),
         },
         'files': [
             { 'includePattern': './(pros_cli-.*\\\\.zip)', 'uploadPattern': '$1' },
             { 'includePattern': './dist/(.*\\\\.whl)', 'uploadPattern': '$1' }
         ]
-    }, f)
+    }
+
+with open('bintray.json', 'w') as f:
+    json.dump(o, f)

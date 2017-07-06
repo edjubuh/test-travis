@@ -7,3 +7,5 @@ build/
 dist/
 
 pros_cli.egg-info/
+
+bintray.json
