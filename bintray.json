@@ -14,7 +14,7 @@
         "desc": "My First Version"
     }, 
     "files": [
-        { "includePattern": "dist/(*.zip)", "uploadPattern": "$1" },
-        { "includePattern": "dist/(*.whl)", "uploadPattern": "$1" }
+        { "includePattern": "dist/(.*\\.zip)", "uploadPattern": "$1" },
+        { "includePattern": "dist/(.*\\.whl)", "uploadPattern": "$1" }
     ]
 }
