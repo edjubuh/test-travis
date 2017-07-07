@@ -8,7 +8,7 @@ environment:
       PYTHON_VERSION: "3.6.0"
       PYTHON_ARCH: "64"
 install:
-  - "%PYTHON%\\python.exe -m pip install -r requirements"
+  - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
   - "%PYTHON%\\python.exe -m pip install cx_freeze"
 
 build_script:
