@@ -7,7 +7,7 @@ install:
 script:
   - python setup.py bdist_wheel
   - python build.py build_exe
-after_success:
+before_deploy:
   - python bintray.py
 deploy:
   provider: bintray

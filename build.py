@@ -1,4 +1,5 @@
 import sys
+import subprocess
 from cx_Freeze import Executable, setup
 import pkgutil
 from pip.req import parse_requirements
@@ -12,11 +13,16 @@ import prosflasher
 
 install_reqs = [str(r.req) for r in parse_requirements('requirements.txt', session=False)]
 
+try:
+    v = subprocess.check_output(['git', 'describe', '--dirty'], stderr=subprocess.DEVNULL).decode().strip().replace('-','b', 1).replace('-','.')
+except subprocess.CalledProcessError as e:
+    v = open('version').read().strip()
+
 build_exe_options = {
     'packages': ['ssl', 'prosconductor.providers.githubreleases', 'requests'],
     "include_files": [(requests.certs.where(), 'cacert.pem')],
     'excludes': ['pip', 'distutils'], # optimization excludes
-    'constants': ['CLI_VERSION=\'{}\''.format(open('version').read().strip())]
+    'constants': ['CLI_VERSION=\'{}\''.format(v)]
     # 'zip_include_packages': [],
     # 'zip_exclude_packages': []
 }
@@ -33,11 +39,11 @@ else:
 
 setup(
     name='pros-cli',
-    version=open('version').read().strip(),
+    version=v,
     packages=modules,
     url='https://github.com/purduesigbots/pros-cli',
     license='MPL-2.0',
-    author='Purdue ACM Sigbots',
+    author='Purdue ACM SIGBots',
     author_email='pros_development@cs.purdue.edu',
     description='Command Line Interface for managing PROS projects',
     options={"build_exe": build_exe_options},
@@ -53,5 +59,5 @@ if sys.argv[1] == 'build_exe':
     import shutil
     import platform
     print('zipping output')
-    shutil.make_archive('pros_cli-{}-{}-{}'.format(open('version').read().strip(), sys.version_info[0], platform.architecture()[0]), 'zip', build_dir, '.')
+    shutil.make_archive('pros_cli-{}-{}-{}'.format(v, platform.system(), platform.architecture()[0]), 'zip', build_dir, '.')
     print('Zipped output')
