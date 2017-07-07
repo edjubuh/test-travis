@@ -1,0 +1,16 @@
+platform:
+- x86
+- x64
+
+environment:
+  matrix:
+    - PYTHON: "C:\Python36"
+    - PYTHON: "C:\Python36-x64"
+
+install:
+  - "%PYTHON%\\python.exe -m pip install -r requirements"
+  - "%PYTHON%\\python.exe -m pip install cx_freeze"
+
+build_script:
+  - "%PYTHON%\\python.exe build.py build_exe"
+
