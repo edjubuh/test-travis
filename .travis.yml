@@ -17,6 +17,8 @@ deploy:
   file:
   - ./(pros_cli-*.zip)
   - ./dist/*.whl
+  on:
+    tags: true
     
 - provider: bintray
   file: "./bintray.json"
