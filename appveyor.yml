@@ -4,9 +4,15 @@ platform:
 
 environment:
   matrix:
-    - PYTHON: "C:\Python36"
-    - PYTHON: "C:\Python36-x64"
+    - PYTHON: "C:\\Python36"
+    - PYTHON: "C:\\Python36-x64"
 
+matrix:
+  exclude:
+    - platform: x86
+      PYTHON: "C:\\Python36-x64"
+    - platform: x64
+      PYTHON: ""C:\\Python36"
 install:
   - "%PYTHON%\\python.exe -m pip install -r requirements"
   - "%PYTHON%\\python.exe -m pip install cx_freeze"
