@@ -5,8 +5,6 @@ platform:
 matrix:
   - py_dir: "C:\\Python36"
   - py_dir: "C:\\Python36-x64"
-
-matrix:
   exclude:
     - platform: x86
       py_dir: "C:\\Python36-x64"
