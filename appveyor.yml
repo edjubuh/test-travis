@@ -11,7 +11,7 @@ matrix:
     - platform: x86
       py_dir: "C:\\Python36-x64"
     - platform: x64
-      py_dir: ""C:\\Python36"
+      py_dir: "C:\\Python36"
 
 environment:
   PYTHON: py_dir
