@@ -14,3 +14,5 @@ install:
 build_script:
   - "%PYTHON%\\python.exe build.py build_exe"
 
+artifacts:
+  - path: './pros_cli-*.zip'
